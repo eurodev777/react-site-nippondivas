@@ -4,10 +4,10 @@
  */
 
 import { Sponsor, Supporter, Director } from "./types";
-import mcamicado from "./assets/patrocinadores/1.jpg";
-import hala from "./assets/patrocinadores/2.jpg";
-import unica from "./assets/patrocinadores/4.jpg";
-import ito from "./assets/patrocinadores/3.jpg";
+import mcamicado from "./assets/patrocinadores/1.webp";
+import hala from "./assets/patrocinadores/2.png";
+import unica from "./assets/patrocinadores/4.jpeg";
+import ito from "./assets/patrocinadores/3.png";
 import sicredi from "./assets/apoio/sicredi.jpg";
 import bwm from "./assets/apoio/bwm.jpg";
 import dai from "./assets/apoio/dai.jpg";
