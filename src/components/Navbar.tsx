@@ -62,7 +62,7 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
           {/* Logo Brand - clicando volta pra home */}
           <div
             onClick={() => handlePageChange("home")}
-            className="flex cursor-pointer items-center space-x-2"
+            className="flex cursor-pointer items-center space-x-2 invisible"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-nippon-red text-white font-serif font-bold text-sm tracking-tighter">
               11º

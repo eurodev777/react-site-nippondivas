@@ -266,8 +266,8 @@ export default function HeroSection({ aerialImagePath }: HeroSectionProps) {
 
           {/* Right: Date Badge */}
           <div className="flex text-[#fff] flex-col items-center text-center md:items-center md:text-right">
-            <h2 className="text-2xl font-black md:text-3xl tracking-tight leading-none">
-              17, 18 e 19 de Julho
+            <h2 className="text-sm font-black md:text-base tracking-tight leading-none">
+              Sábado, 03 de Outubro, a partir das 08:00
             </h2>
             <p className="mt-1 font-sans text-xs font-bold uppercase tracking-widest">
               UCENS / Nippon Sorocaba

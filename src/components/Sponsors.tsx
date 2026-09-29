@@ -77,7 +77,7 @@ export default function Sponsors({ onSelectItem }: SponsorsProps) {
         </div>
 
         {/* EXPOSITORES Section (Novo Layout Baseado na Imagem) */}
-        <div
+        {/* <div
           id="expositores"
           className="space-y-12 scroll-mt-20 pt-8 border-t border-gold/20"
         >
@@ -92,25 +92,19 @@ export default function Sponsors({ onSelectItem }: SponsorsProps) {
             </h3>
           </div>
 
-{/* Grid Principal de Expositores */}
-<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-6xl mx-auto">
+            {EXHIBITORS?.map((exhibitor) => (
+              <SupporterCard
+                key={exhibitor.id}
+                supporter={exhibitor}
+                onClick={(s) => onSelectItem(s)}
+              />
+            ))}
+          </div>
 
-  {EXHIBITORS?.map((exhibitor) => (
-    <SupporterCard
-      key={exhibitor.id}
-      supporter={exhibitor}
-      onClick={(s) => onSelectItem(s)}
-    />
-  ))}
-
-</div>
-
-          {/* Bloco Especial Birugumi (Conforme a imagem) */}
           <div className="max-w-6xl mx-auto mt-16 flex flex-col xl:flex-row items-center justify-between gap-10">
-            {/* Esquerda: Logo oval e Texto */}
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="w-64 h-auto shrink-0">
-                {/* Substitua o src pelo caminho real do logo do Birugumi */}
                 <img
                   src={birugumi}
                   alt="Birugumi Sorocaba SP"
@@ -130,7 +124,6 @@ export default function Sponsors({ onSelectItem }: SponsorsProps) {
               </div>
             </div>
 
-            {/* Direita: 3 Cartões lado a lado */}
             <div className="flex flex-wrap justify-center gap-3">
               {BIRUGUMI_SPONSORS?.map((sponsor) => (
                 <div key={sponsor.id} className="w-[130px] md:w-[150px]">
@@ -142,7 +135,7 @@ export default function Sponsors({ onSelectItem }: SponsorsProps) {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Safety Disclaimer bar */}
         <div className="max-w-4xl mx-auto rounded-2xl bg-white/50 border border-gold/15 p-5 flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-4 md:space-y-0 md:space-x-6">
