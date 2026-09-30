@@ -21,13 +21,13 @@ export default function SupporterCard({ supporter, onClick }: SupporterCardProps
       whileHover={{ y: -3, scale: 1.03, borderColor: '#b38e41', boxShadow: '0 8px 16px -8px rgba(179, 142, 65, 0.15)' }}
       whileTap={{ scale: 0.97 }}
       onClick={() => onClick(supporter)}
-      className="group relative flex h-32 cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-stone-200 bg-white px-3 py-2 shadow-xs transition-all"
+      className="group relative flex h-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-stone-200 bg-white px-3 py-2 shadow-xs transition-all"
     >
       {/* Background card accent */}
       <div className="absolute inset-0 bg-stone-50/20 opacity-0 transition group-hover:opacity-100" />
       
       {/* Supporter Logo Content */}
-      <div className="z-10 w-48 h-28">
+      <div className="z-10 w-48 h-full">
         <img
           src={supporter.logoText}
           className="w-full h-full object-contain"

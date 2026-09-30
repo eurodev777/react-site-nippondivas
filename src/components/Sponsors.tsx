@@ -54,7 +54,7 @@ export default function Sponsors({ onSelectItem }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 max-w-7xl mx-auto">
             {SUPPORTERS.map((supporter) => (
               <SupporterCard
                 key={supporter.id}

@@ -88,7 +88,7 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
               }`}
             >
               <Users className="h-3.5 w-3.5" />
-              <span>11° INTERCOLONIAL</span>
+              <span>5° DIVAS</span>
             </button>
             {/* Botão EQUIPES */}
             <button

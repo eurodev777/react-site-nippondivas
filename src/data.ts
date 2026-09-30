@@ -5,9 +5,10 @@
 
 import { Sponsor, Supporter, Director } from "./types";
 import mcamicado from "./assets/patrocinadores/1.webp";
-import hala from "./assets/patrocinadores/2.png";
+import hala from "./assets/patrocinadores/hala.jpg";
 import unica from "./assets/patrocinadores/4.jpeg";
-import ito from "./assets/patrocinadores/3.png";
+import braga from "./assets/patrocinadores/3.png";
+import ito from "./assets/patrocinadores/ito.jpg";
 import sicredi from "./assets/apoio/sicredi.jpg";
 import bwm from "./assets/apoio/bwm.jpg";
 import dai from "./assets/apoio/dai.jpg";
@@ -188,11 +189,11 @@ export const SPONSORS = [
       "A M.Camicado é sinônimo de tradição e economia em Sorocaba e região. Oferecemos uma linha completa de utilidades domésticas, presentes, decoração, brinquedos e artigos para o lar com o melhor preço garantido.",
     bgColor: "bg-[#D2143A]",
     textColor: "text-white",
-  }
+  },
 ];
 
 export const SUPPORTERS = [
-    {
+  {
     id: "super-pneus",
     name: "Super Pneus",
     logoText: unica,
@@ -200,20 +201,21 @@ export const SUPPORTERS = [
     instagramUrl: "superpneus",
   },
   {
-    id: "sicredi",
-    name: "Sicredi",
+    id: "braga",
+    name: "Instituto Braga",
     logoType: "text",
-    logoText: sicredi,
-    siteUrl: "https://www.sicredi.com.br",
-    instagram: "sicredi",
+    logoText: braga,
+    siteUrl: "",
+    instagram: "braga",
   },
   {
-    id: "hala",
-    name: "HALA SOLUÇÕES",
+    id: "prosteel",
+    name: "Prosteel",
     logoType: "text",
-    logoText: hala,
-    siteUrl: "https://www.halasolucoes.com.br",
-    instagram: "halasolucoes",
+    logoText: prosteel,
+    tagline: "Estruturas Metálicas e Calderaria",
+    instagram: "prosteelsorocaba",
+    description: "prosteelsorocaba@bol.com.br",
   },
   {
     id: "jadlog",
@@ -226,24 +228,6 @@ export const SUPPORTERS = [
     description: "tat.sor@jadlog.com.br",
   },
   {
-    id: "m0-ambiental",
-    name: "Grupo M0 Ambiental",
-    logoType: "text",
-    logoText: h20,
-    instagram: "grupoh2oambiental2",
-    whatsapp: "+5515998609777",
-    description: "a solução completa para o seu projeto!",
-  },
-  {
-    id: "prosteel",
-    name: "Prosteel",
-    logoType: "text",
-    logoText: prosteel,
-    tagline: "Estruturas Metálicas e Calderaria",
-    instagram: "prosteelsorocaba",
-    description: "prosteelsorocaba@bol.com.br",
-  },
-  {
     id: "ito",
     name: "ITO",
     logoType: "text",
@@ -254,7 +238,16 @@ export const SUPPORTERS = [
     description:
       "Sua melhor opção em loja de materiais para construção em Sorocaba. Com mais de 10.000 produtos divididos em diversos departamentos, aqui você encontra tudo para sua obra, podendo contar com as melhores e mais variadas marcas e modelos de materiais para construção disponíveis no mercado.",
   },
-    {
+  {
+    id: "hala",
+    name: "HALA SOLUÇÕES",
+    logoType: "text",
+    logoText: hala,
+    siteUrl: "https://www.halasolucoes.com.br",
+    instagram: "halasolucoes",
+  },
+
+  {
     id: "hala",
     name: "Mira",
     logoType: "text",
@@ -262,20 +255,35 @@ export const SUPPORTERS = [
     siteUrl: "",
     instagram: "",
   },
-  // {
-  //   id: "sothink",
-  //   name: "Sothink Marketing",
-  //   logoType: "text",
-  //   logoText: sothink,
-  //   tagline: "agência de marketing",
-  //   siteUrl: "https://sothink.com.br",
-  //   instagram: "stk.marketing",
-  //   facebook: "profile.php?id=61562262162613",
-  //   whatsapp: "+5515997442108",
-  //   phone: "(15) 99744-2108",
-  //   description:
-  //     "Na Sothink, cada projeto começa com uma análise estratégica das áreas da empresa. A partir desse diagnóstico, oferecemos soluções personalizadas, alinhadas às necessidades específicas de cada cliente — afinal, cada negócio é único e vive realidades diferentes.",
-  // },
+  {
+    id: "m0-ambiental",
+    name: "Grupo M0 Ambiental",
+    logoType: "text",
+    logoText: h20,
+    instagram: "grupoh2oambiental2",
+    whatsapp: "+5515998609777",
+    description: "a solução completa para o seu projeto!",
+  },
+  {
+    id: "tadao",
+    name: "Tadao Takeda",
+    logoType: "text",
+    logoText: tadao,
+    siteUrl: "",
+    instagram: "",
+  },
+  {
+    id: "sothink",
+    name: "Sothink Marketing",
+    logoType: "text",
+    logoText: sothink,
+    siteUrl: "https://sothink.com.br",
+    instagram: "stk.marketing",
+    facebook: "profile.php?id=61562262162613",
+    whatsapp: "+5515997442108",
+    description:
+      "Na Sothink, cada projeto começa com uma análise estratégica das áreas da empresa. A partir desse diagnóstico, oferecemos soluções personalizadas, alinhadas às necessidades específicas de cada cliente — afinal, cada negócio é único e vive realidades diferentes.",
+  },
 ];
 
 export const DIRECTORS: Director[] = [
