@@ -192,6 +192,13 @@ export const SPONSORS = [
 ];
 
 export const SUPPORTERS = [
+    {
+    id: "super-pneus",
+    name: "Super Pneus",
+    logoText: unica,
+    instagram: "superpneus",
+    instagramUrl: "superpneus",
+  },
   {
     id: "sicredi",
     name: "Sicredi",
@@ -246,6 +253,14 @@ export const SUPPORTERS = [
     whatsapp: "+5511996192659",
     description:
       "Sua melhor opção em loja de materiais para construção em Sorocaba. Com mais de 10.000 produtos divididos em diversos departamentos, aqui você encontra tudo para sua obra, podendo contar com as melhores e mais variadas marcas e modelos de materiais para construção disponíveis no mercado.",
+  },
+    {
+    id: "hala",
+    name: "Mira",
+    logoType: "text",
+    logoText: mira,
+    siteUrl: "",
+    instagram: "",
   },
   // {
   //   id: "sothink",
