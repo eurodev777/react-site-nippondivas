@@ -46,7 +46,7 @@ type ResultadoBusca = {
 };
 
 const API_URL =
-  "https://sothink.com.br/centenario26/api/v2/nippon";
+  "https://sothink.com.br/apidivas/api/v2/nippon";
 
 const FAIXAS: FaixaEtaria[] = [120, 130, 140, 150, 160];
 

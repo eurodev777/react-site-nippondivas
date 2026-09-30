@@ -89,9 +89,9 @@ type TitleLayout = {
   width: number;
 };
 
-const API_IMAGENS = "https://sothink.com.br/centenario26/api/v2/nippon/list-images";
-const BASE_IMAGENS = "https://sothink.com.br/centenario26/";
-const API_CHAVES = "https://sothink.com.br/apichaves/api/jogos";
+const API_IMAGENS = "https://sothink.com.br/apidivas/api/v2/nippon/list-images";
+const BASE_IMAGENS = "https://sothink.com.br/apidivas/";
+const API_CHAVES = "https://sothink.com.br/apidivas/apichaves/api/jogos";
 
 const CARD_W = 355;
 const CARD_H = 184;
