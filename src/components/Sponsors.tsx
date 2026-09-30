@@ -7,11 +7,7 @@ import SupporterCard from "./SupporterCard";
 import { ShieldCheck, Heart, Award, Store } from "lucide-react";
 import birugumi from "../assets/expositores/birugumi.png";
 
-interface SponsorsProps {
-  onSelectItem: (item: Sponsor | Supporter) => void;
-}
-
-export default function Sponsors({ onSelectItem }: SponsorsProps) {
+export default function Sponsors({ onSelectItem }) {
   return (
     <section className="bg-gradient-to-r from-[#460A34] to-[#6D1A4C] py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-20">
@@ -31,7 +27,7 @@ export default function Sponsors({ onSelectItem }: SponsorsProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-6xl mx-auto">
+          <div className="flex flex-col items-center justify-center max-w-6xl mx-auto">
             {SPONSORS.map((sponsor) => (
               <SponsorCard
                 key={sponsor.id}
