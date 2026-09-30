@@ -377,35 +377,6 @@ export default function RelacaoAtletasPage({
 
           {/* NAVEGAÇÃO */}
           <nav className="mb-10 flex flex-wrap items-center justify-center gap-2">
-            <nav className="mb-10 flex flex-wrap items-center justify-center gap-2">
-              <button
-                type="button"
-                onClick={() => setCategoriaAtual("todos")}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                  categoriaAtual === "todos"
-                    ? "bg-[#c93b2b] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                Todos
-              </button>
-
-              {categorias.map((categoria) => (
-                <button
-                  key={categoria.id}
-                  type="button"
-                  onClick={() => setCategoriaAtual(categoria.id)}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                    categoriaAtual === categoria.id
-                      ? "bg-[#c93b2b] text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  {categoria.titulo}
-                </button>
-              ))}
-            </nav>
-
             <button
               type="button"
               onClick={() => setCategoriaAtual("todos")}
@@ -417,6 +388,21 @@ export default function RelacaoAtletasPage({
             >
               Todos
             </button>
+
+            {categorias.map((categoria) => (
+              <button
+                key={categoria.id}
+                type="button"
+                onClick={() => setCategoriaAtual(categoria.id)}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                  categoriaAtual === categoria.id
+                    ? "bg-[#c93b2b] text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                {categoria.titulo}
+              </button>
+            ))}
           </nav>
 
           {/* CARREGANDO */}
