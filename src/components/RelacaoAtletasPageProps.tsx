@@ -1,5 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Users, Loader2, AlertCircle, Search, X } from "lucide-react";
+import {
+  ArrowLeft,
+  Users,
+  Loader2,
+  AlertCircle,
+  Search,
+  X,
+} from "lucide-react";
 import { motion } from "motion/react";
 
 interface RelacaoAtletasPageProps {
@@ -35,9 +42,7 @@ type RespostaAPI = {
   categorias: Categoria[];
 };
 
-type FaixaEtaria = 120 | 130 | 140 | 150 | 160;
-
-type CategoriaSelecionada = FaixaEtaria | "todos";
+type CategoriaSelecionada = number | "todos";
 
 type ResultadoBusca = {
   atleta: Atleta;
@@ -45,10 +50,7 @@ type ResultadoBusca = {
   categoria: Categoria;
 };
 
-const API_URL =
-  "https://sothink.com.br/apidivas/api/v2/nippon";
-
-const FAIXAS: FaixaEtaria[] = [120, 130, 140, 150, 160];
+const API_URL = "https://sothink.com.br/apidivas/api/v2/nippon";
 
 function normalizarBusca(valor: string): string {
   return valor
@@ -101,25 +103,17 @@ function totalAtletas(categoria: Categoria) {
   );
 }
 
-function TabelaCategoria({
-  categoria,
-}: {
-  categoria: Categoria;
-}) {
+function TabelaCategoria({ categoria }: { categoria: Categoria }) {
   return (
     <section className="w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-
       {/* TÍTULO */}
       <header className="flex items-center justify-between gap-3 border-b border-gray-100 bg-white px-4 py-3">
-
         <div className="flex min-w-0 items-center gap-2">
-
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#c93b2b]/10 text-[#c93b2b]">
             <Users className="h-4 w-4" />
           </span>
 
           <div className="min-w-0">
-
             <h2 className="truncate text-[13px] font-bold uppercase text-black md:text-[14px]">
               {categoria.titulo}
             </h2>
@@ -127,34 +121,26 @@ function TabelaCategoria({
             <p className="text-[10px] font-semibold text-gray-400">
               {totalAtletas(categoria)} atletas cadastrados
             </p>
-
           </div>
-
         </div>
 
         <span className="shrink-0 rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[10px] font-bold uppercase text-gray-600">
           {categoria.equipes?.length || 0} duplas
         </span>
-
       </header>
 
       {/* EQUIPES / DUPLAS */}
       <div className="divide-y divide-gray-100">
-
         {categoria.equipes?.map((equipe, equipeIndex) => (
-
           <div
             key={equipe.id || `${categoria.id}-${equipeIndex}`}
             className="grid grid-cols-[42px_36%_1fr] items-center gap-2 px-3 py-3 transition hover:bg-gray-50"
           >
-
             {/* NÚMERO */}
             <div className="flex justify-center">
-
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 text-[11px] font-bold text-gray-600">
                 {equipeIndex + 1}
               </span>
-
             </div>
 
             {/* NOME DA EQUIPE */}
@@ -164,40 +150,24 @@ function TabelaCategoria({
 
             {/* ATLETAS */}
             <div className="px-1 text-center">
-
               {equipe.atletas && equipe.atletas.length > 0 ? (
-
                 <div className="flex flex-col">
-
                   {equipe.atletas.map((atleta, atletaIndex) => (
-
                     <span
                       key={atleta.id || `${equipe.id}-${atletaIndex}`}
                       className="block text-[11px] font-medium leading-[1.35] text-black md:text-[12px]"
                     >
                       {atleta.nome}
                     </span>
-
                   ))}
-
                 </div>
-
               ) : (
-
-                <span className="text-[11px] text-gray-400">
-                  Sem atletas
-                </span>
-
+                <span className="text-[11px] text-gray-400">Sem atletas</span>
               )}
-
             </div>
-
           </div>
-
         ))}
-
       </div>
-
     </section>
   );
 }
@@ -205,12 +175,10 @@ function TabelaCategoria({
 export default function RelacaoAtletasPage({
   onBack,
 }: RelacaoAtletasPageProps) {
-
   const [categoriaAtual, setCategoriaAtual] =
-    useState<CategoriaSelecionada>(120);
+    useState<CategoriaSelecionada>("todos");
 
-  const [categoriasBanco, setCategoriasBanco] =
-    useState<Categoria[]>([]);
+  const [categoriasBanco, setCategoriasBanco] = useState<Categoria[]>([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -224,62 +192,37 @@ export default function RelacaoAtletasPage({
   ============================================
   */
   useEffect(() => {
-
     const carregarDados = async () => {
-
       try {
-
         setLoading(true);
         setErro(null);
 
-        const response = await fetch(
-          `${API_URL}/listar?tabela=completo`,
-          {
-            method: "GET",
-            cache: "no-store",
-          },
-        );
+        const response = await fetch(`${API_URL}/listar?tabela=completo`, {
+          method: "GET",
+          cache: "no-store",
+        });
 
         if (!response.ok) {
-          throw new Error(
-            `Erro HTTP ${response.status}`,
-          );
+          throw new Error(`Erro HTTP ${response.status}`);
         }
 
         const json: RespostaAPI = await response.json();
 
-        if (
-          !json ||
-          !Array.isArray(json.categorias)
-        ) {
-          throw new Error(
-            "Formato inválido recebido da API.",
-          );
+        if (!json || !Array.isArray(json.categorias)) {
+          throw new Error("Formato inválido recebido da API.");
         }
 
         setCategoriasBanco(json.categorias);
-
       } catch (error) {
+        console.error("Erro carregando relação de atletas:", error);
 
-        console.error(
-          "Erro carregando relação de atletas:",
-          error,
-        );
-
-        setErro(
-          "Não foi possível carregar a relação de atletas.",
-        );
-
+        setErro("Não foi possível carregar a relação de atletas.");
       } finally {
-
         setLoading(false);
-
       }
-
     };
 
     carregarDados();
-
   }, []);
 
   /*
@@ -288,9 +231,7 @@ export default function RelacaoAtletasPage({
   ============================================
   */
   const categorias = useMemo(() => {
-
     return ordenarCategorias(categoriasBanco);
-
   }, [categoriasBanco]);
 
   /*
@@ -299,16 +240,11 @@ export default function RelacaoAtletasPage({
   ============================================
   */
   const categoriasExibidas = useMemo(() => {
-
     if (categoriaAtual === "todos") {
       return categorias;
     }
 
-    return categorias.filter(
-      (categoria) =>
-        pegarIdade(categoria.titulo) === categoriaAtual,
-    );
-
+    return categorias.filter((categoria) => categoria.id === categoriaAtual);
   }, [categoriaAtual, categorias]);
 
   /*
@@ -320,7 +256,6 @@ export default function RelacaoAtletasPage({
   const termoBusca = normalizarBusca(busca);
 
   const resultadosBusca = useMemo<ResultadoBusca[]>(() => {
-
     if (!termoBusca) {
       return [];
     }
@@ -328,43 +263,29 @@ export default function RelacaoAtletasPage({
     const resultados: ResultadoBusca[] = [];
 
     categorias.forEach((categoria) => {
-
       categoria.equipes?.forEach((equipe) => {
-
         equipe.atletas?.forEach((atleta) => {
-
-          if (
-            normalizarBusca(atleta.nome || "").includes(termoBusca)
-          ) {
+          if (normalizarBusca(atleta.nome || "").includes(termoBusca)) {
             resultados.push({
               atleta,
               equipe,
               categoria,
             });
           }
-
         });
-
       });
-
     });
 
     return resultados.sort((a, b) =>
-      a.atleta.nome.localeCompare(
-        b.atleta.nome,
-        "pt-BR",
-        { sensitivity: "base" },
-      ),
+      a.atleta.nome.localeCompare(b.atleta.nome, "pt-BR", {
+        sensitivity: "base",
+      }),
     );
-
   }, [categorias, termoBusca]);
 
   return (
-
     <div className="min-h-screen bg-white px-4 py-8 md:px-8 md:py-10">
-
       <div className="mx-auto max-w-[1500px]">
-
         {/* VOLTAR */}
         <button
           type="button"
@@ -372,7 +293,6 @@ export default function RelacaoAtletasPage({
           className="mb-8 flex items-center font-semibold text-[#c93b2b] transition hover:opacity-80"
         >
           <ArrowLeft className="mr-2 h-5 w-5" />
-
           Voltar para a Home
         </button>
 
@@ -389,22 +309,15 @@ export default function RelacaoAtletasPage({
             duration: 0.35,
           }}
         >
-
           {/* BUSCA GLOBAL DE ATLETAS */}
           <div className="mx-auto mb-6 max-w-2xl">
-
             <div className="relative">
-
-              <Search
-                className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-              />
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
 
               <input
                 type="text"
                 value={busca}
-                onChange={(event) =>
-                  setBusca(event.target.value)
-                }
+                onChange={(event) => setBusca(event.target.value)}
                 placeholder="Procure um atleta pelo nome..."
                 autoComplete="off"
                 className="
@@ -431,7 +344,6 @@ export default function RelacaoAtletasPage({
               />
 
               {busca ? (
-
                 <button
                   type="button"
                   onClick={() => setBusca("")}
@@ -455,44 +367,48 @@ export default function RelacaoAtletasPage({
                 >
                   <X className="h-4 w-4" />
                 </button>
-
               ) : null}
-
             </div>
 
             <p className="mt-2 text-center text-[11px] font-medium text-gray-400">
               A busca procura em todas as categorias e equipes.
             </p>
-
           </div>
 
           {/* NAVEGAÇÃO */}
           <nav className="mb-10 flex flex-wrap items-center justify-center gap-2">
-
-            {FAIXAS.map((idade) => (
-
+            <nav className="mb-10 flex flex-wrap items-center justify-center gap-2">
               <button
-                key={idade}
                 type="button"
-                onClick={() =>
-                  setCategoriaAtual(idade)
-                }
+                onClick={() => setCategoriaAtual("todos")}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                  categoriaAtual === idade
+                  categoriaAtual === "todos"
                     ? "bg-[#c93b2b] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
-                {idade} ANOS
+                Todos
               </button>
 
-            ))}
+              {categorias.map((categoria) => (
+                <button
+                  key={categoria.id}
+                  type="button"
+                  onClick={() => setCategoriaAtual(categoria.id)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                    categoriaAtual === categoria.id
+                      ? "bg-[#c93b2b] text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  {categoria.titulo}
+                </button>
+              ))}
+            </nav>
 
             <button
               type="button"
-              onClick={() =>
-                setCategoriaAtual("todos")
-              }
+              onClick={() => setCategoriaAtual("todos")}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                 categoriaAtual === "todos"
                   ? "bg-[#c93b2b] text-white"
@@ -501,51 +417,35 @@ export default function RelacaoAtletasPage({
             >
               Todos
             </button>
-
           </nav>
 
           {/* CARREGANDO */}
           {loading && (
-
             <div className="flex min-h-[300px] flex-col items-center justify-center">
-
               <Loader2 className="mb-3 h-8 w-8 animate-spin text-[#c93b2b]" />
 
               <p className="text-sm font-medium text-gray-500">
                 Carregando atletas...
               </p>
-
             </div>
-
           )}
 
           {/* ERRO */}
           {!loading && erro && (
-
             <div className="flex min-h-[300px] flex-col items-center justify-center">
-
               <AlertCircle className="mb-3 h-8 w-8 text-red-500" />
 
-              <p className="text-sm font-semibold text-red-600">
-                {erro}
-              </p>
-
+              <p className="text-sm font-semibold text-red-600">{erro}</p>
             </div>
-
           )}
 
           {/* RESULTADOS DA BUSCA / CATEGORIAS */}
           {!loading && !erro && (
-
             <>
               {termoBusca ? (
-
                 <div>
-
                   <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-
                     <div>
-
                       <p className="text-sm font-bold text-black">
                         Resultado da busca
                       </p>
@@ -555,7 +455,6 @@ export default function RelacaoAtletasPage({
                           ? "1 atleta encontrado"
                           : `${resultadosBusca.length} atletas encontrados`}
                       </p>
-
                     </div>
 
                     <button
@@ -565,16 +464,12 @@ export default function RelacaoAtletasPage({
                     >
                       Limpar busca
                     </button>
-
                   </div>
 
                   {resultadosBusca.length > 0 ? (
-
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-
                       {resultadosBusca.map(
                         ({ atleta, equipe, categoria }, index) => (
-
                           <article
                             key={`${categoria.id}-${equipe.id}-${atleta.id}-${index}`}
                             className="
@@ -589,17 +484,13 @@ export default function RelacaoAtletasPage({
                               hover:shadow-md
                             "
                           >
-
                             <div className="border-b border-gray-100 px-4 py-4">
-
                               <div className="flex items-start gap-3">
-
                                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#c93b2b]/10 text-[#c93b2b]">
                                   <Users className="h-4 w-4" />
                                 </span>
 
                                 <div className="min-w-0">
-
                                   <h3 className="text-[14px] font-extrabold leading-tight text-black">
                                     {atleta.nome}
                                   </h3>
@@ -607,17 +498,12 @@ export default function RelacaoAtletasPage({
                                   <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-gray-400">
                                     Atleta
                                   </p>
-
                                 </div>
-
                               </div>
-
                             </div>
 
                             <div className="space-y-3 px-4 py-4">
-
                               <div>
-
                                 <span className="block text-[9px] font-bold uppercase tracking-wider text-gray-400">
                                   Equipe
                                 </span>
@@ -625,11 +511,9 @@ export default function RelacaoAtletasPage({
                                 <strong className="mt-0.5 block text-[12px] font-bold uppercase leading-tight text-black">
                                   {equipe.nome}
                                 </strong>
-
                               </div>
 
                               <div>
-
                                 <span className="block text-[9px] font-bold uppercase tracking-wider text-gray-400">
                                   Categoria
                                 </span>
@@ -637,22 +521,14 @@ export default function RelacaoAtletasPage({
                                 <strong className="mt-0.5 block text-[11px] font-bold uppercase leading-tight text-[#c93b2b]">
                                   {categoria.titulo}
                                 </strong>
-
                               </div>
-
                             </div>
-
                           </article>
-
                         ),
                       )}
-
                     </div>
-
                   ) : (
-
                     <div className="rounded-2xl border border-dashed border-gray-200 bg-gray-50 px-4 py-16 text-center">
-
                       <Search className="mx-auto mb-3 h-8 w-8 text-gray-300" />
 
                       <p className="text-sm font-bold text-gray-600">
@@ -662,15 +538,10 @@ export default function RelacaoAtletasPage({
                       <p className="mt-1 text-xs font-medium text-gray-400">
                         Tente digitar outro nome.
                       </p>
-
                     </div>
-
                   )}
-
                 </div>
-
               ) : categoriasExibidas.length > 0 ? (
-
                 <div
                   className="
                     grid
@@ -682,35 +553,19 @@ export default function RelacaoAtletasPage({
                     xl:grid-cols-4
                   "
                 >
-
-                  {categoriasExibidas.map(
-                    (categoria) => (
-
-                      <TabelaCategoria
-                        key={categoria.id}
-                        categoria={categoria}
-                      />
-
-                    ),
-                  )}
-
+                  {categoriasExibidas.map((categoria) => (
+                    <TabelaCategoria key={categoria.id} categoria={categoria} />
+                  ))}
                 </div>
-
               ) : (
-
                 <div className="py-20 text-center text-gray-500">
                   Nenhuma categoria encontrada.
                 </div>
-
               )}
             </>
-
           )}
-
         </motion.div>
-
       </div>
-
     </div>
   );
 }
