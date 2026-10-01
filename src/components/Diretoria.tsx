@@ -30,7 +30,7 @@ export default function Diretoria() {
   return (
     <section
       id="diretoria"
-      className="relative bg-gradient-to-r from-[#460A34] to-[#6D1A4C] text-white py-16 border-t border-b border-gold/10"
+      className="relative bg-gradient-to-r from-[#2E0622] to-[#4D0D35] text-white py-16 border-t border-b border-gold/10"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Title Block */}

@@ -228,7 +228,7 @@ export default function HeroSection({ aerialImagePath }: HeroSectionProps) {
   return (
     <section
       id="hero-section"
-      className="relative overflow-hidden bg-gradient-to-r from-[#460A34] to-[#6D1A4C] py-8 md:py-16"
+      className="relative overflow-hidden bg-gradient-to-r from-[#2E0622] to-[#4D0D35] py-8 md:py-16"
     >
       {/* Decorative background flowers */}
       <div className="absolute left-4 top-20 opacity-5 pointer-events-none md:left-20">

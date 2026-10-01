@@ -9,7 +9,7 @@ import birugumi from "../assets/expositores/birugumi.png";
 
 export default function Sponsors({ onSelectItem }) {
   return (
-    <section className="bg-gradient-to-r from-[#460A34] to-[#6D1A4C] py-16">
+    <section className="bg-gradient-to-r from-[#2E0622] to-[#4D0D35] py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-20">
         {/* PATROCÍNIO MASTER Section */}
         <div id="patrocinio" className="space-y-8 scroll-mt-20">
