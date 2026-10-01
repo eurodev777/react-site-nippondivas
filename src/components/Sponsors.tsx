@@ -63,12 +63,12 @@ export default function Sponsors({ onSelectItem }) {
               />
             ))}
 
-            <div className="hidden lg:flex h-20 items-center justify-center rounded-xl border border-dashed border-stone-200 bg-stone-50/20 text-stone-300 font-serif italic text-xs">
+            {/* <div className="hidden lg:flex h-20 items-center justify-center rounded-xl border border-dashed border-stone-200 bg-stone-50/20 text-stone-300 font-serif italic text-xs">
               Espaço Disponível
             </div>
             <div className="hidden lg:flex h-20 items-center justify-center rounded-xl border border-dashed border-stone-200 bg-stone-50/20 text-stone-300 font-serif italic text-xs">
               Espaço Disponível
-            </div>
+            </div> */}
           </div>
         </div>
 
