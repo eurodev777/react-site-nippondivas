@@ -177,16 +177,16 @@ export const BIRUGUMI_SPONSORS = [
 export const SPONSORS = [
   {
     id: "m-camicado",
-    name: "M.Camicado",
+    name: "GSH Horses",
     logoType: "text",
     logoText: mcamicado,
-    tagline: "TRADIÇÃO EM PREÇOS BAIXOS",
-    siteUrl: "https://www.mcamicado.com.br",
-    instagram: "mcamicado.oficial",
-    whatsapp: "+551133127676",
-    phone: "(11) 3312-7676",
+    tagline: "CAVALOS IMPORTADOS",
+    siteUrl: "https://www.ganeshahorses.com.br/",
+    instagram: "ganesha_sport_horses",
+    whatsapp: "",
+    phone: "",
     description:
-      "A M.Camicado é sinônimo de tradição e economia em Sorocaba e região. Oferecemos uma linha completa de utilidades domésticas, presentes, decoração, brinquedos e artigos para o lar com o melhor preço garantido.",
+      "A Ganesha Sport Horses (GSH é uma importadora brasileira especializada em cavalos de alta performance e genética diferenciada para competições nacionais e internacionais de hipismo.",
     bgColor: "bg-[#D2143A]",
     textColor: "text-white",
   },
