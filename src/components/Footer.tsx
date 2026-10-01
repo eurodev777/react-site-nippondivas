@@ -26,7 +26,7 @@ export default function Footer({ currentPage, setCurrentPage }: NavbarProps) {
           {/* Left: support links and copy info */}
           <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
             <span className="text-stone-500 font-mono text-[11px] tracking-normal">
-              11º Intercolonial © {currentYear}
+              5º Encontro das Divas © {currentYear}
             </span>
             <div className="h-3 w-[1px] bg-stone-800 hidden sm:block" />
             <a
