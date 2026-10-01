@@ -48,7 +48,7 @@ export default function Diretoria() {
           </h3>
           <p className="mt-3 text-sm text-stone-200 max-w-xl mx-auto leading-relaxed">
             A comissão responsável pela organização, coordenação técnica e
-            garantia de fair play ao longo de todo o 11º Intercolonial.
+            garantia de fair play ao longo de todo o 5º Encontro das Divas.
           </p>
         </div>
 
